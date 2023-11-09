@@ -21,24 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @SuppressLint("WrongViewCast")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btn_plus = findViewById(R.id.btn_plus);
-        btn_plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent go_plus = new Intent(MainActivity.this , Plus1.class);
-                startActivity(go_plus);
-            }
-        });
-
-
-
-//test
 
             }
 
