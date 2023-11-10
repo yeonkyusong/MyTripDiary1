@@ -10,15 +10,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_home;
-    private Button btn_plus;
-    private Button btn_record;
+    private ImageButton btn_home;
+    private ImageButton btn_plus;
+    private ImageButton btn_record;
 
 
-//sadsdass
+
 
 
 
@@ -27,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btn_plus = findViewById(R.id.btn_plus);
+        btn_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go_plus = new Intent(MainActivity.this , Plus1.class);
+                startActivity(go_plus);
+
             }
+        });
+
+    }
 
 }

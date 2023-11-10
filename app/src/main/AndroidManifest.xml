@@ -13,13 +13,13 @@
         android:theme="@style/Theme.MyTripDiary"
         tools:targetApi="31">
         <activity
+            android:name=".Plus2"
+            android:exported="false" />
+        <activity
             android:name=".Plus1"
             android:exported="false" />
         <activity
             android:name=".SelectData"
-            android:exported="false" />
-        <activity
-            android:name=".Plus2"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
