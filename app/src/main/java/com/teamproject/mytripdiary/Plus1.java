@@ -24,7 +24,7 @@ public class Plus1 extends AppCompatActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent go_home = new Intent(Plus1.this , MainActivity.class);
+                Intent go_home= new Intent(Plus1.this , MainActivity.class);
                 startActivity(go_home);
 
             }
