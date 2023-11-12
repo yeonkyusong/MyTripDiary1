@@ -21,12 +21,8 @@
         <activity
             android:name=".Plus1"
             android:exported="false" />
-        <activity
-            android:name=".SelectData"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

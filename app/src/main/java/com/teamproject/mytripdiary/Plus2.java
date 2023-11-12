@@ -19,6 +19,8 @@ public class Plus2 extends AppCompatActivity {
     private Button btn_next, btn_selectStartDate, btn_selectEndDate;
     private Calendar calendar;
     private ImageButton btn_home;
+    private String selectedStartDate;
+    private String selectedEndDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +29,22 @@ public class Plus2 extends AppCompatActivity {
 
         btn_home = findViewById(R.id.btn_home);
         btn_home.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            Intent go_home = new Intent(Plus2.this, MainActivity.class);
-                                            startActivity(go_home);
+            @Override
+            public void onClick(View v) {
+                Intent go_home = new Intent(Plus2.this, MainActivity.class);
+                startActivity(go_home);
 
-                                        }
-                                    });
+            }
+        });
 
-                btn_next = findViewById(R.id.btn_next);
+        btn_next = findViewById(R.id.btn_next);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 여행 시작날짜와 종료날짜 정보를 PlanPerDay 액티비티로 전달
                 Intent go_planperday = new Intent(Plus2.this, PlanPerDay.class);
+                go_planperday.putExtra("start_date", selectedStartDate);
+                go_planperday.putExtra("end_date", selectedEndDate);
                 startActivity(go_planperday);
             }
         });
@@ -76,11 +81,11 @@ public class Plus2 extends AppCompatActivity {
                         String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
 
                         if (dateType.equals("start")) {
-                            // Handle the selected start date
-                            // Example: txtStartDate.setText(selectedDate);
+                            // 여행 시작 날짜 정보 저장
+                            selectedStartDate = selectedDate;
                         } else if (dateType.equals("end")) {
-                            // Handle the selected end date
-                            // Example: txtEndDate.setText(selectedDate);
+                            // 여행 종료 날짜 정보 저장
+                            selectedEndDate = selectedDate;
                         }
 
                         Toast.makeText(Plus2.this, "Selected Date: " + selectedDate, Toast.LENGTH_SHORT).show();
