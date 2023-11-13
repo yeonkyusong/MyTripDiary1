@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/user_and_location_category_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 사용자 정보 입력 부분 -->
+    <LinearLayout
+        android:id="@+id/user_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="상세 내용"
+            android:layout_marginTop="8dp"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/editTextAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="원"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="8dp"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- 위치, 카테고리 입력 부분 -->
+    <LinearLayout
+        android:id="@+id/location_category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinnerLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:entries="@array/location_options"
+            android:prompt="@string/location_prompt" />
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:entries="@array/category_options"
+            android:prompt="@string/category_prompt" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/main_title_combined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="My\nTrip                        여행의 시작과 끝\nDiary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/main_title_hr"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+
+        <!-- 여행 경비 예상 지출 내역 입력 부분 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewExpense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:id="@+id/expense_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- "예상 지출 내역", "여행 진행 중 예상 지출 내역을 입력해 주세요" 레이아웃 -->
+                <LinearLayout
+                    android:id="@+id/text_labels_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/expense_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="예상 지출 내역"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/expense_subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="여행 진행 중 예상 지출 내역을 입력해 주세요."
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:paddingTop="8dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 사용자 정보 및 위치, 카테고리 입력 부분 -->
+        <LinearLayout
+            android:id="@+id/user_and_location_category_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 사용자 정보 입력 부분 -->
+            <LinearLayout
+                android:id="@+id/user_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="상세 내용"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/editTextAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="원"
+                    android:inputType="numberDecimal"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- 위치, 카테고리 입력 부분 -->
+            <LinearLayout
+                android:id="@+id/location_category_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinnerLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    android:entries="@array/location_options"
+                    android:prompt="@string/location_prompt" />
+
+                <Spinner
+                    android:id="@+id/spinnerCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    android:entries="@array/category_options"
+                    android:prompt="@string/category_prompt" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/main_middle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <!-- 추가 버튼 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+            </LinearLayout>
+
+            <!-- 예상 지출 내역의 총 금액을 표시하는 TextView -->
+            <TextView
+                android:id="@+id/totalExpenseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="총 금액: 0 원"
+                android:textSize="16sp"
+                android:layout_gravity="bottom|center_horizontal"/>
+
+            <ImageButton
+                android:id="@+id/plus"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:contentDescription="추가 버튼"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:src="@drawable/plus" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true">
+
+            <View
+                android:id="@+id/main_bottom_hr"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_home"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/home_btn"
+                    android:contentDescription="홈 버튼" />
+
+                <ImageButton
+                    android:id="@+id/btn_plus"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/plus_btn4"
+                    android:contentDescription="플러스 버튼" />
+
+                <ImageButton
+                    android:id="@+id/btn_record"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/record_btn3"
+                    android:contentDescription="기록 버튼" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

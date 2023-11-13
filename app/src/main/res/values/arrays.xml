@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 다른 리소스들 -->
+
+    <string-array name="category_options">
+        <item>카테고리1</item>
+        <item>카테고리2</item>
+        <!-- 필요한 만큼 계속 추가 -->
+    </string-array>
+
+    <string-array name="location_options">
+        <item>장소1</item>
+        <item>장소2</item>
+        <!-- 필요한 만큼 계속 추가 -->
+    </string-array>
+</resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyTripDiary</string>
+    <string name="location_prompt">Select Location</string>
+    <string name="category_prompt">Select Category</string>
 </resources>
