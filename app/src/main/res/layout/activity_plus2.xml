@@ -65,7 +65,7 @@
                 android:onClick="selectEndDate"
                 android:text="종료 날짜" />
 
-            <!-- Your other layout components go here -->
+            <!-- 기타 레이아웃 구성 요소를 여기에 추가 -->
 
         </RelativeLayout>
 
