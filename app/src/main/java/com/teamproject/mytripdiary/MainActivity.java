@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btn_plus;
     private ImageButton btn_record;
 
-
+    private Button btn_ex;
 
 
 
@@ -35,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent go_plus = new Intent(MainActivity.this , Plus1.class);
                 startActivity(go_plus);
 
+            }
+        });
+        btn_ex = findViewById(R.id.btn_ex);
+        btn_ex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go_plus2 = new Intent(Plus1.this , Plus2.class);
+                startActivity(go_plus2);
             }
         });
 
