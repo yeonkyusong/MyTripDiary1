@@ -28,12 +28,12 @@ public class traffic extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traffic);
 
-        btn_plus = findViewById(R.id.btn_plus);
-        btn_plus.setOnClickListener(new View.OnClickListener() {
+        btn_home = findViewById(R.id.btn_home);
+        btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent go_plus = new Intent(traffic.this , MainActivity.class);
-                startActivity(go_plus);
+                Intent go_home = new Intent(traffic.this , MainActivity.class);
+                startActivity(go_home);
 
             }
         });
