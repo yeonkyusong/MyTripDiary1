@@ -71,4 +71,3 @@ public class SetLocation extends AppCompatActivity implements OnMapReadyCallback
         mapView.onLowMemory();
     }
 }
-}
