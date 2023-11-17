@@ -1,9 +1,12 @@
 package com.teamproject.mytripdiary;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import java.text.ParseException;
@@ -14,6 +17,8 @@ import java.util.Locale;
 
 public class PlanPerDay extends AppCompatActivity {
 
+    private ImageButton btn_home;
+
     private LinearLayout layoutButtons;
     private String startDate, endDate;
 
@@ -22,8 +27,17 @@ public class PlanPerDay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_per_day);
 
-        // 여행 시작날짜와 종료날짜를 받아옴
-        startDate = getIntent().getStringExtra("start_date");
+        btn_home = findViewById(R.id.btn_home);
+        btn_home.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent go_home= new Intent(PlanPerDay.this , MainActivity.class);
+                                            startActivity(go_home);
+                                        }
+                                    });
+
+                // 여행 시작날짜와 종료날짜를 받아옴
+                startDate = getIntent().getStringExtra("start_date");
         endDate = getIntent().getStringExtra("end_date");
 
         layoutButtons = findViewById(R.id.layoutButtons);
@@ -47,11 +61,13 @@ public class PlanPerDay extends AppCompatActivity {
                 Button button = new Button(this);
                 button.setText(i + "일차 계획");
                 button.setId(i);
+                final int dayNumber = i;
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // 버튼이 클릭되었을 때 수행할 동작 추가
-                        // 예: 해당 날짜에 대한 일정 등을 표시
+                        Intent intent = new Intent(PlanPerDay.this, NewDayActivity.class);
+                        intent.putExtra("day_number", dayNumber); // 클릭한 버튼의 날짜 정보를 전달
+                        startActivity(intent);
                     }
                 });
                 layoutButtons.addView(button);

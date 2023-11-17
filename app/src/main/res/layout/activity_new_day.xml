@@ -28,32 +28,57 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/layoutButtons"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp"
-            tools:context=".PlanPerDay">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|top"
+            android:text=""
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textViewDayNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
 
+        <TextView
+            android:id="@+id/q_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\n\n1.\n출발 장소, 출발 시간을\n알려주세요."
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"/>
 
-            <!-- ScrollView 내의 LinearLayout 아이디 변경 -->
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+        <EditText
+            android:id="@+id/search_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="장소를 입력하시오." />
 
-               
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:text="다음" />
 
-            </ScrollView>
-
-
-        </LinearLayout>
 
     </FrameLayout>
-
     <FrameLayout
         android:id="@+id/main_bottom"
         android:layout_width="match_parent"
