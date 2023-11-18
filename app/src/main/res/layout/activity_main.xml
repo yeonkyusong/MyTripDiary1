@@ -28,6 +28,11 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
+        <ScrollView
+            android:id="@+id/scrollTrip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <TextView
             android:id="@+id/main_middle_messaage"
             android:layout_width="wrap_content"

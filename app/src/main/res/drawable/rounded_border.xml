@@ -1,0 +1,8 @@
+<!-- rounded_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" /> <!-- 내부 색상 -->
+    <corners android:radius="10dp" /> <!-- 테두리의 라운드 반지름 -->
+    <stroke
+        android:color="#000000"
+    android:width="2dp" />
+</shape>
