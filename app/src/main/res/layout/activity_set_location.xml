@@ -28,28 +28,42 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <ScrollView
-            android:id="@+id/scrollTrip"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|top"
+            android:text=""
+            android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/main_middle_messaage"
-            android:layout_width="wrap_content"
+            android:id="@+id/q_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|center_horizontal"
-            android:text="계획이 아직 없습니다."
+            android:text="입력하신 장소가 맞습니까?"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
+
         <Button
-            android:id="@+id/btn_ex"
+            android:id="@+id/btn_next"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
-    </FrameLayout>
+            android:layout_gravity="bottom|end"
+            android:text="다음" />
 
+        <Button
+            android:id="@+id/button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="직접 선택" />
+
+
+    </FrameLayout>
     <FrameLayout
         android:id="@+id/main_bottom"
         android:layout_width="match_parent"
