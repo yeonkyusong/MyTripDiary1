@@ -24,6 +24,24 @@ public class record extends AppCompatActivity {
 
     private DBHelper dbHelper;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_record);
+
+        btn_home = findViewById(R.id.btn_home);
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go_home = new Intent(record.this , MainActivity.class);
+                startActivity(go_home);
+
+            }
+        });
+
+
+    }
+
     private  void showTravelRecords(){
         // DatabaseHelper 클래스를 사용하여 데이터베이스에 접근
         DBHelper dbHelper = new DBHelper(this);
@@ -61,27 +79,6 @@ public class record extends AppCompatActivity {
         //사용이 끝난 리소스 해제
         cursor.close();
         dbHelper.close();
-    }
-
-
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record);
-
-        btn_home = findViewById(R.id.btn_home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent go_home = new Intent(record.this , MainActivity.class);
-                startActivity(go_home);
-
-            }
-        });
-
-
     }
 
 }

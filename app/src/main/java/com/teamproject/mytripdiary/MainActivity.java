@@ -62,6 +62,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        btn_record = findViewById(R.id.btn_record);
+        btn_record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go_record = new Intent(MainActivity.this , record.class);
+                startActivity(go_record);
+
+            }
+        });
+
         layoutPlans = findViewById(R.id.layoutPlans);
     }
 
