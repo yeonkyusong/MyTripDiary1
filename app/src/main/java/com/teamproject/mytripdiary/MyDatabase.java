@@ -46,6 +46,22 @@ public class MyDatabase {
         return database.insert("tbl_schedule", null, values);
     }
 
+    // 세 번쨰 테이블에 데이터 삽입
+
+    public long insertDataToRecord(int idx, int day, int recordId, String time, String location, double x, double y, String title, String start_date, String end_date){
+        ContentValues values = new ContentValues();
+        values.put("title", title);
+        values.put("start_date", start_date);
+        values.put("end_date", end_date);
+        values.put("idx", idx);
+        values.put("day", day);
+        values.put("time", time);
+        values.put("location", location);
+        values.put("x", x);
+        values.put("y", y);
+        return database.insert("tbl_record", null, values);
+    }
+
     // 첫 번째 테이블에서 모든 데이터 조회
     public Cursor getAllDataFromTrip() {
         String[] columns = {"idx", "title", "start_date", "end_date"};
@@ -58,5 +74,11 @@ public class MyDatabase {
         return database.query("tbl_schedule", columns, null, null, null, null, null);
     }
 
-    // 기타 필요한 메서드들...
+    // 세 번째 테이블에서 모든 데이터 조회
+
+    public Cursor getAllDataFromRecord(){
+        String[] colums = {"idx", "title", "start_date", "end_date", "day", "time", "location", "x", "y"};
+        return database.query("tbl_record", colums, null, null, null, null, null);
+    }
+
 }
