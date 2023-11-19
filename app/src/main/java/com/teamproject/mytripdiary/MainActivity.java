@@ -29,14 +29,14 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton btn_home;
     private MyDatabase myDatabase;
+    private ImageButton btn_home;
     private ImageButton btn_plus;
     private ImageButton btn_record;
+    LinearLayout layoutPlans;
     Calendar calendar = Calendar.getInstance();
     String selectedStartDate;
     String selectedEndDate;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
         myDatabase = new MyDatabase(this);
         myDatabase.open();
 
+        btn_home = findViewById(R.id.btn_home);
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPlans();
+            }
+        });
+
         btn_plus = findViewById(R.id.btn_plus);
         btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,14 +62,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        layoutPlans = findViewById(R.id.layoutPlans);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    void showPlans() {
+        layoutPlans.removeAllViews();
 
         Cursor cursorTableTrip = myDatabase.getAllDataFromTrip();
         if (cursorTableTrip.moveToFirst()) {
+            findViewById(R.id.main_middle_messaage).setVisibility(View.INVISIBLE);
             do {
                 // 첫 번째 테이블 데이터 처리
                 @SuppressLint("Range") int idx = cursorTableTrip.getInt(cursorTableTrip.getColumnIndex("idx"));
@@ -70,12 +84,16 @@ public class MainActivity extends AppCompatActivity {
                 @SuppressLint("Range") String end_date = cursorTableTrip.getString(cursorTableTrip.getColumnIndex("end_date"));
                 Log.d("MyTripDairy", "title = "+title+" start_date = "+start_date+" end_date = "+end_date);
 
-
-                // 여기에서 데이터 활용
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View viewPlan = inflater.inflate(R.layout.created_plan, null);
+                Button btn = viewPlan.findViewById(R.id.btnPlan);
+                btn.setText(title+"\n"+start_date+"~"+end_date);
+                layoutPlans.addView(viewPlan);
             } while (cursorTableTrip.moveToNext());
+        } else {
+            findViewById(R.id.main_middle_messaage).setVisibility(View.VISIBLE);
         }
     }
-
     private void showCreatePlanPopup() {
         // LayoutInflater를 통해 XML 레이아웃을 객체로 변환
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -106,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myDatabase.insertDataToTrip(txtTitle.getText().toString(), btnSelectStartDate.getText().toString(), btnSelectEndDate.getText().toString());
+                showPlans();
                 popupWindow.dismiss(); // 팝업창 닫기
             }
         });
@@ -159,5 +178,4 @@ public class MainActivity extends AppCompatActivity {
 
         datePickerDialog.show();
     }
-
 }

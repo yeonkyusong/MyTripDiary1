@@ -55,7 +55,7 @@
             android:text="다음" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnPlan"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

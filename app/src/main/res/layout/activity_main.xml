@@ -31,7 +31,14 @@
         <ScrollView
             android:id="@+id/scrollTrip"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/layoutPlans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+        </ScrollView>
 
         <TextView
             android:id="@+id/main_middle_messaage"
