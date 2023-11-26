@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         btn_record = findViewById(R.id.btn_record);
         btn_record.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
         layoutPlans = findViewById(R.id.layoutPlans);
     }
