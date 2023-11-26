@@ -1,33 +1,44 @@
 package com.teamproject.mytripdiary;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import com.naver.maps.map.MapView;
 
 public class SetLocation extends AppCompatActivity {
-    private ImageButton btn_home;
-
-
+    private MapView mMapView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_location);
 
+        mMapView = findViewById(R.id.mapView);
+        mMapView.onCreate(savedInstanceState);
+    }
 
-        btn_home = findViewById(R.id.btn_home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent go_home= new Intent(SetLocation.this , MainActivity.class);
-                startActivity(go_home);
-            }
-        });
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMapView.onResume();
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMapView.onPause();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mMapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mMapView.onLowMemory();
     }
 }
